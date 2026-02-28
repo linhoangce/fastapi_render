@@ -1,1 +1,6 @@
-fastapi[all]
+fastapi
+joblib
+pydantic
+scikit_learn
+torch
+uvicorn
