@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel, Field
 import joblib
 import torch
+import torch.nn as nn
 
 class IrisNet(nn.Module):
     def __init__(self):
