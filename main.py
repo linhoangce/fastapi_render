@@ -1,9 +1,19 @@
 from fastapi import FastAPI
-from train_and_save import IrisNet
 from pydantic import BaseModel, Field
 import joblib
 import torch
 
+class IrisNet(nn.Module):
+    def __init__(self):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(4, 16),
+            nn.ReLU(),
+            nn.Linear(16, 3)
+        )
+
+    def forward(self, x):
+        return self.net(x)
 
 app = FastAPI(title="FastAPI + PyTorch Iris Prediction")
 scaler = joblib.load("iris_scaler.joblib")
